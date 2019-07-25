@@ -1,0 +1,19 @@
+\section{Related Work}\label{sec:rel}
+\textbf{Fixed-width counter.}
+In flow statistics field, many approaches have been proposed to save the on-chip memory.
+DISCO~\cite{Hu2010} elaborately designs the counter update rule so that the increment of the updated counter is less than the actual packet length.
+ANLS~\cite{Hu2012} uses a sampling technique and dynamically sets a smaller sampling rate when the counter value is large, to reduce the memory usage.
+These approaches can save memory cost, but they still apply fixed-width counters, leading to low memory efficiency.
+
+\textbf{Variable-width counter.}
+To save the memory wasted by fixed counter width, variable-width counter architecture has been proposed.
+BRICK~\cite{Hua2008} is the state-of-the-art variable-width counter approach.
+BRICK splits a counter into several sub-counters, and will allocate an extra sub-counter to a flow only when it exceeds the original memory size.
+However, in the cases of multiple per-flow tasks, BRICK may fail when handling the hot spots of elephant flows.
+
+DIAL is complementary to these approaches.
+As a result, a smaller counter/bucket can be set with much lower risk of memory exceeding, so as to further reduce the overall cost.
+For example, OpenCounter~\cite{Callegari2015} counts unknown flows in SDN, maintaining a counter named LLCRS in the controller for each switch, and aggregates them when queried. 
+The design philosophy of OpenCounter is similar to DIAL. 
+Both of them are distributed counting architecture based on SDN. 
+However, OpenCounter focus on unknown flow counting in controller, with specific data structure LLCRS, whereas DIAL can count any flows in switch, with diverse data structure options, depending on the specific usage, which is a more general counting architecture framework.

@@ -1,0 +1,389 @@
+% Encoding: UTF-8
+
+@article{doi:10.1287/mnsc.37.6.695,
+author = {Bezalel Gavish and Hasan Pirkul},
+title = {Algorithms for the Multi-Resource Generalized Assignment Problem},
+journal = {Management Science},
+volume = {37},
+number = {6},
+pages = {695-713},
+year = {1991},
+doi = {10.1287/mnsc.37.6.695},
+
+URL = { 
+        https://doi.org/10.1287/mnsc.37.6.695
+    
+},
+eprint = { 
+        https://doi.org/10.1287/mnsc.37.6.695
+    
+}
+,
+    abstract = { The multi-resource generalized assignment problem is encountered when a set of tasks have to be assigned to a set of agents in a way that permits assignment of multiple tasks to an agent subject to the availability of a set of multiple resources consumed by that agent. This problem differs from the generalized assignment problem in that an agent consumes not just one but a variety of resources in performing the tasks assigned to him. This paper develops effective solution procedures for the multi-resource generalized assignment problem. Various relaxations of the problem are studied and theoretical relations among these relaxations are pointed out. Rules for reducing problem size are discussed and are shown to be effective through computational experiments. Heuristic solution procedures and an efficient branch and bound procedure are developed. Results of computational experiments testing these procedures are reported. }
+}
+
+
+@Article{Sarrar2012,
+  author   = {Sarrar, Nadi and Uhlig, Steve and Huang, Xin and Huang, Xin and Huang, Xin},
+  title    = {Leveraging Zipf's law for traffic offloading},
+  journal  = {Acm Sigcomm Computer Communication Review},
+  year     = {2012},
+  volume   = {42},
+  number   = {1},
+  pages    = {16-22},
+  abstract = {Internet traffic has Zipf-like properties at multiple aggregation levels. These properties suggest the possibility of offloading most of the traffic from a complex controller (e.g., a software router) to a simple forwarder (e.g., a commodity switch), by letting the forwarder handle a very limited set of flows; the heavy hitters. As the volume of traffic from a set of flows is highly dynamic, maintaining a reliable set of heavy hitters over time is challenging. This is especially true when we face a volume limit in the non-offloaded traffic in combination with a constraint in the size of the heavy hitter set or its rate of change. We propose a set selection strategy that takes advantage of the properties of heavy hitters at different time scales. Based on real Internet traffic traces, we show that our strategy is able to offload most of the traffic while limiting the rate of change of the heavy hitter set, suggesting the feasibility of alternative router designs.},
+  keywords = {heavy hitters;software defined network;software router},
+}
+
+@InProceedings{Fang1999,
+  author    = {Fang, W and Peterson, L},
+  title     = {Inter-AS traffic patterns and their implications},
+  booktitle = {Global Telecommunications Conference, 1999. GLOBECOM},
+  year      = {1999},
+  pages     = {1859-1868 vol.3},
+  abstract  = {This paper reports on a study of traffic patterns among autonomous systems (ASes), based on traces taken at various points in the Internet. The traces display a highly nonuniform distribution of traffic on flows between pairs of hosts, networks, and ASes. Aggregation along coarser granularities, such as networks or ASes, accentuates this nonuniform distribution. In one typical trace, for example, the top 9% of flows between ASes accounts for 86.7% of the packets and 90.7% of the bytes transmitted. A highly nonuniform traffic pattern suggests that routers need to maintain only limited QoS flow state. The paper discusses the implications of this phenomenon on different proposed QoS mechanisms},
+  keywords  = {Internet;network topology;packet switching;quality of service;statistical analysis;telecommunication network routing;telecommunication traffic;Internet topology;QoS flow state;QoS mechanisms},
+}
+
+@InProceedings{Hua2008,
+  author    = {Hua, Nan and Lin, Bill and Xu, Jun and Zhao, Haiquan},
+  title     = {BRICK:a novel exact active statistics counter architecture},
+  booktitle = {ACM/IEEE Symposium on Architecture for Networking and Communications Systems, ANCS 2008, San Jose, California, Usa, November},
+  year      = {2008},
+  pages     = {89-98},
+  abstract  = {In this paper, we present an exact active statistics counter architecture called BRICK (Bucketized Rank Indexed Counters) that can efficiently store per-flow variable-width statistics counters entirely in SRAM while supporting both fast updates and lookups (e.g., 40 Gb/s line rates). BRICK exploits statistical multiplexing by randomly bundling counters into small fixed-size buckets and supports dynamic sizing of counters by employing an innovative indexing scheme called rank-indexing. Experiments with Internet traces show that our solution can indeed maintain large arrays of exact active statistics counters with moderate amounts of SRAM.},
+  file      = {:measurement\\counter\\BRICK.pdf:PDF},
+  keywords  = {Internet;SRAM chips;statistical multiplexing;stochastic processes;BRICK;Internet trace;SRAM;active statistics counter architecture;fixed-size bucket;statistical multiplexing},
+}
+
+@Article{Zhao2006,
+  author   = {Zhao, Qi and Xu, Jun and Liu, Zhen},
+  title    = {Design of a novel statistics counter architecture with optimal space and time efficiency.},
+  journal  = {Acm Sigmetrics Performance Evaluation Review},
+  year     = {2006},
+  volume   = {34},
+  number   = {1},
+  pages    = {323-334},
+  abstract = {The problem of how to efficiently maintain a large number (say millions) of statistics counters that need to be incremented at very high speed has received considerable research attention recently. This problem arises in a variety of router management algorithms and data streaming algorithms, where a large array of counters is used to track various network statistics and to implement various counting sketches respectively. While fitting these counters entirely in SRAM meets the access speed requirement, a large amount of SRAM may be needed with a typical counter size of 32 or 64 bits, and hence the high cost. Solutions proposed in recent works have used hybrid architectures where small counters in SRAM are incremented at high speed, and occasionally written back ("flushed") to larger counters in DRAM. Previous solutions have used complex schedulers with tree-like or heap data structures to pick which counters in SRAM are about to overflow, and flush them to the corresponding DRAM counters.In this work, we present a novel hybrid SRAM/DRAM counter architecture that consumes much less SRAM and has a much simpler design of the scheduler than previous approaches. We show, in fact, that our design is optimal in the sense that for a given speed difference between SRAM and DRAM, our design uses the theoretically minimum number of bits per counter in SRAM. Our design uses a small write-back buffer (in SRAM) that stores indices of the overflowed counters (to be flushed to DRAM) and an extremely simple randomized algorithm to statistically guarantee that SRAM counters do not overflow in bursts large enough to fill up the write-back buffer even in the worst case. The statistical guarantee of the algorithm is proven using a combination of worst case analysis for characterizing the worst case counter increment sequence and a new tail bound theorem for bounding the probability of filling up the write-back buffer. Experiments with real Internet traffic traces show that the buffer size required in practice is significantly smaller than needed in the worst case.},
+  keywords = {data streaming;router;statistics counter},
+}
+
+@Article{Hu2012,
+  author   = {Hu, Chengchen and Liu, Bin and Wang, Sheng and Tian, Jia and Cheng, Yu and Chen, Yan},
+  title    = {ANLS: Adaptive Non-Linear Sampling Method for Accurate Flow Size Measurement},
+  journal  = {IEEE Transactions on Communications},
+  year     = {2012},
+  volume   = {60},
+  number   = {3},
+  pages    = {789-798},
+  abstract = {Sampling technology has been widely deployed in network measurement systems to control memory consumption and processing overhead. However, most of the existing methods suffer from large errors for the estimation of small-size flows. To address this problem, we propose an adaptive non-linear sampling (ANLS) method for flow size estimation. Instead of statically pre-configuring the sampling rate, ANLS dynamically adjusts the sampling rate for each flow according to the value of a corresponding counter. A smaller sampling rate is utilized when the counter value is large, while a larger sampling rate is employed for a smaller counter. In this paper, the unbiased flow size estimation, the relative error, and the required counter size are studied through theoretical analysis and experimental evaluations. The analysis and experiments demonstrate that ANLS can significantly improve the estimation accuracy (particularly for small-size flows), and save memory consumption, while maintaining processing overhead comparable to existing methods. Moreover, we validate the design of ANLS by implementing an FPGA-based prototype, which is capable of measuring traffic throughput up to 26.5 Gbps.},
+  file     = {:measurement\\counter\\抽样\\ANLS.pdf:PDF},
+  keywords = {sampling;Network measurement;flow statistics},
+}
+
+@Article{Morris1978,
+  author   = {Morris, Robert},
+  title    = {Counting large numbers of events in small registers},
+  journal  = {Communications of the Acm},
+  year     = {1978},
+  volume   = {21},
+  number   = {10},
+  pages    = {840--842},
+  abstract = {ABSTRACT  It is possible to use a small counter to keep approximate counts of large numbers. The resulting expected error can be rather precisely controlled. An example is given in which 8-bit counters (bytes) are used to keep track of as many as 130,000 events with a relative error which is substantially independent of the number n of events. This relative error can be expected to be 24 percent or less 95 percent of the time (i.e. &sgr; = n/8). The techniques could be used to advantage in multichannel counting hardware or software used for the monitoring of experiments or processes.},
+  keywords = {adjustment of factors;adjusted orthogonality;factorial experiment;nonorthogonal design;pairwise orthogonality},
+}
+
+@Article{Cvetkovski2007,
+  author   = {Cvetkovski, Andrej},
+  title    = {An algorithm for approximate counting using limited memory resources},
+  journal  = {Acm Sigmetrics Performance Evaluation Review},
+  year     = {2007},
+  volume   = {35},
+  number   = {1},
+  pages    = {181-190},
+  abstract = {This paper describes a randomized algorithm for approximate counting that preserves the same modest memory requirements of log(log n) bits per counter as the approximate counting algorithm introduced in the seminal paper of R. Morris (1978), and in addition, is characterized by (i) lower expected number of memory accesses and (ii) lower standard error on more than 99 percent of its counting range. An exact analysis of the relevant statistical properties of the algorithm is carried out. Performance evaluation via simulations is also provided to validate the presented theory. Given its properties, the presented algorithm is suitable as a basic building block of data streaming applications having a large number of simultaneous counters and/or operating at very high speeds. As such, it is applicable to a wide range of measurement and monitoring operations, including performance monitoring of communication hardware, measurements for optimization in large database systems, and gathering statistics for data compression.},
+  keywords = {approximate counting;data streaming;network monitoring},
+}
+
+@InProceedings{Cohen2003,
+  author    = {Cohen, Saar and Matias, Yossi},
+  title     = {Spectral bloom filters},
+  booktitle = {ACM SIGMOD International Conference on Management of Data},
+  year      = {2003},
+  pages     = {241-252},
+  abstract  = {A Bloom Filter is a space-efficient randomized data structure allowing membership queries over sets with certain allowable errors. It is widely used in many applications which take advantage of its ability to compactly represent a set, and filter out effectively any element that does not belong to the set, with small error probability. This paper introduces the Spectral Bloom Filter (SBF), an extension of the original Bloom Filter to multi-sets, allowing the filtering of elements whose multiplicities are below a threshold given at query time. Using memory only slightly larger than that of the original Bloom Filter, the SBF supports queries on the multiplicities of individual keys with a guaranteed, small error probability. The SBF also supports insertions and deletions over the data set. We present novel methods for reducing the probability and magnitude of errors. We also present an efficient data structure and algorithms to build it incrementally and maintain it over streaming data, as well as over materialized data with arbitrary insertions and deletions. The SBF does not assume any a priori filtering threshold and effectively and efficiently maintains information over the entire data-set, allowing for ad-hoc queries with arbitrary parameters and enabling a range of new applications.},
+}
+
+@InProceedings{Hu2010,
+  author    = {Hu, Chengchen and Liu, Bin and Zhao, Hongbo and Chen, Kai},
+  title     = {DISCO: Memory Efficient and Accurate Flow Statistics for Network Measurement},
+  booktitle = {IEEE International Conference on Distributed Computing Systems},
+  year      = {2010},
+  pages     = {665-674},
+  abstract  = {A basic task in network passive measurement is collecting flow statistics information for network state characterization. With the continuous increase of Internet link speed and the number of flows, flow statistics has become a great challenge due to the demanding requirements on both memory size and memory bandwidth in measurement devices. In this paper, we propose a DIScount COunting (DISCO) method, which is designed for both flow size and flow volume counting. For each incoming packet of length l, DISCO increases the corresponding counter assigned to the flow with an increment that is less than l. With an elaborate design on the counter update rule and the inverse estimation, DISCO saves memory consumption while providing an accurate unbiased estimator. The method is evaluated thoroughly under theoretical analysis and simulations with synthetic and real traces. The results demonstrate that DISCO is more accurate than related work given the same counter size. DISCO is also implemented on network processor Intel IXP2850 for performance test. Using only one MicroEngine (ME) in IXP2850, the throughput can reach up to 11.1Gbps under a traditional traffic pattern, and it increases almost linearly with the number of MEs employed.},
+  file      = {:measurement\\counter\\抽样\\DISCO.pdf:PDF},
+  keywords  = {Analytical models;Bandwidth;Counting circuits;Design methodology;Fluid flow measurement;Internet;Size measurement;Statistics;Testing;Velocity measurement},
+}
+
+@InProceedings{Ramabhadran2003,
+  author    = {Ramabhadran, Sriram and Varghese, George},
+  title     = {Efficient implementation of a statistics counter architecture},
+  booktitle = {Acm Sigmetrics International Conference on Measurement \& Modeling of Computer Systems},
+  year      = {2003},
+  pages     = {261-271},
+  abstract  = {Internet routers and switches need to maintain millions of (e.g., per prefix) counters at up to OC-768 speeds that are essential for traffic engineering. Unfortunately, the speed requirements require the use of large amounts of expensive SRAM memory. Shah et al [1]introduced a cheaper statistics counter architecture that uses a much smaller amount of SRAM by using the SRAM as a cache together with a (cheap) backing DRAM that stores the complete counters. Counters in SRAM are periodically updated to the DRAM before they overflow under the control of a counter management algorithm. Shah et al [1] also devised a counter management algorithm called LCF that they prove uses an optimal amount of SRAM. Unfortunately, it is difficult to implement LCF at high speeds because it requires sorting to evict the largest counter in the SRAM. This paper removes this bottleneck in [1] by proposing a counter management algorithm called LR(T) (Largest Recent with thresh-old T) that avoids sorting by only keeping a bitmap that tracks counters that are larger than threshold T. This allows LR(T) to be practically realizable using only at most 2 bits extra per counter and a simple pipelined data structure. Despite this, we show through a formal analysis, that for a particular value of the threshold T, the LR(T) requires an optimal amount of SRAM, matching LCF. Further,we also describe an implementation, based on a novel data structure called aggregated bitmap, that allows the LR(T) algorithm to be realized at line rates.},
+  keywords  = {router;statistics counter},
+}
+
+@Article{Shah2002,
+  author   = {Shah, Devavrat and Iyer, Sundar and Prabhakar, Balaji and Mckeown, Nick},
+  title    = {Maintaining Statistics Counters in Router Line Cards},
+  journal  = {IEEE Micro},
+  year     = {2002},
+  volume   = {22},
+  number   = {1},
+  pages    = {76-81},
+  abstract = {A network device stores and updates statistics counters. Using an optimal counter management algorithm minimizes required SRAM size and ensures correct line-rate operation for many counters. We use a well known architecture for storing and updating statistics counters. This approach maintains smaller-size counters in fast (potentially on-chip) SRAM, while maintaining full-size counters in a large, slower DRAM. Our goal is to ensure that the system always correctly maintains counter values at line rate. An optimal counter management algorithm (CMA) minimizes the required SRAM size while ensuring correct line-rate operation for a large number of counters},
+  file     = {:measurement\\counter\\Maintaining Statistics Counters in Router Line Cards.pdf:PDF},
+  keywords = {ieee computer society},
+}
+
+@Article{Stanojevic2007,
+  author   = {Stanojevic, R},
+  title    = {Small Active Counters},
+  journal  = {Proceedings - IEEE INFOCOM},
+  year     = {2007},
+  pages    = {2153-2161},
+  abstract = {The need for efficient counter architecture hasarisen for the following two reasons. Firstly, a number of data streaming algorithms and network management applications require a large number of counters in order to identify important traffic characteristics. And secondly, at high speeds, current memory devices have significant limitations in terms of speed (DRAM) and size (SRAM). For some applications no information on counters is needed on a per-packet basis and several methods have been proposed to handle this problem with low SRAM memory requirements. However, for a number of applications it is essential to have the counter information on every packet arrival.In this paper we propose two, computationally and memoryefficient, randomized algorithms for approximating the counter values. We prove that proposed estimators are unbiased and give variance bounds. A case study on Multistage Filters (MSF) over the real Internet traces shows a significant improvement by using the active counters architecture.},
+  keywords = {Internet;Internet;counter architecture;data streaming algorithms;multistage filters;network management;randomized algorithms;Communications Society;Computer architecture;Counting circuits},
+}
+
+@InProceedings{Roeder2004,
+  author    = {Roeder, M and Lin, Bill},
+  title     = {Maintaining exact statistics counters with a multi-level counter memory},
+  booktitle = {Global Telecommunications Conference, 2004. GLOBECOM '04. IEEE},
+  year      = {2004},
+  pages     = {576-581 Vol.2},
+  abstract  = {For monitoring and measuring high-speed networks accurately in real-time, a large number of statistics counters may need to be maintained at wirespeeds (e.g. 10 Gbit/s), Expensive, but fast. SRAM is needed for storing the counters to satisfy the speed requirements. However, high-density, but slower, DRAM is needed to provide the necessary storage capacity for storing all counter values exactly. Recent papers by Shah et al. (2003) and Ramabhadran and Varghese (2003) have addressed the problem using counter memory architectures based on one level of fast SRAM for storing partial counter values and a high-capacity DRAM for storing full counter values. In this paper, we propose to extend their work with a multi-level counter memory architecture to reduce the amount of fast memory required. Our multi-level counter memory architecture can reduce the amount of equivalent fast memory storage required by as much as 28%.},
+  keywords  = {DRAM chips;SRAM chips;memory architecture;monitoring;statistics;telecommunication network management;10 Gbit/s;DRAM;SRAM;exact statistics counters},
+}
+
+@InProceedings{Lu2008,
+  author    = {Lu, Yi and Montanari, Andrea and Dharmapurikar, Sarang and Dharmapurikar, Sarang and Kabbani, Abdul},
+  title     = {Counter braids: a novel counter architecture for per-flow measurement},
+  booktitle = {ACM SIGMETRICS International Conference on Measurement and Modeling of Computer Systems},
+  year      = {2008},
+  pages     = {121-132},
+  abstract  = {Fine-grained network measurement requires routers and switches to update large arrays of counters at very high link speed (e.g. 40 Gbps). A naive algorithm needs an infeasible amount of SRAM to store both the counters and a flow-to-counter association rule, so that arriving packets can update corresponding counters at link speed. This has made accurate per-flow measurement complex and expensive, and motivated approximate methods that detect and measure only the large flows. This paper revisits the problem of accurate per-flow measurement. We present a counter architecture, called Counter Braids, inspired by sparse random graph codes. In a nutshell, Counter Braids "compresses while counting". It solves the central problems (counter space and flow-to-counter association) of per-flow measurement by "braiding" a hierarchy of counters with random graphs. Braiding results in drastic space reduction by sharing counters among flows; and using random graphs generated on-the-fly with hash functions avoids the storage of flow-to-counter association. The Counter Braids architecture is optimal (albeit with a complex decoder) as it achieves the maximum compression rate asymptotically. For implementation, we present a low-complexity message passing decoding algorithm, which can recover flow sizes with essentially zero error. Evaluation on Internet traces demonstrates that almost all flow sizes are recovered exactly with only a few bits of counter space per flow.},
+  keywords  = {message passing algorithms;network measurement;statistic counters},
+}
+
+@InProceedings{Guo2001,
+  author    = {Guo, Liang and Matta, I.},
+  title     = {The war between mice and elephants},
+  booktitle = {International Conference on Network Protocols},
+  year      = {2001},
+  pages     = {180-188},
+  abstract  = {Recent measurement based studies reveal that most of the Internet connections are short in terms of the amount of traffic they carry (mice), while a small fraction of the connections are carrying a large portion of the traffic (elephants). A careful study of the TCP protocol shows that without help from an active queue management (AQM) policy, short connections tend to lose to long connections in their competition for bandwidth. This is because short connections do not gain detailed knowledge of the network state, and therefore they are doomed to be less competitive due to the conservative nature of the TCP congestion control algorithm. Inspired by the differentiated services (Diffserv) architecture, we propose to give preferential treatment to short connections inside the bottleneck queue, so that short connections experience less packet drop rate than long connections. This is done by employing the RIO (RED with In and Out) queue management policy which uses different drop functions for different classes of traffic. Our simulation results show that: (1) in a highly loaded network, preferential treatment is necessary to provide short TCP connections with better response time and fairness without hurting the performance of long TCP connections; (2) the proposed scheme still delivers packets in FIFO manner at each link, thus it maintains statistical multiplexing gain and does not misorder packets; (3) choosing a smaller default initial timeout value for TCP can help enhance the performance of short TCP flows, however not as effectively as our scheme and at the risk of congestion collapse; (4) in the worst case, our proposal works as well as a regular RED scheme, in terms of response time and goodput.},
+  file      = {:C\:\\Users\\pengz_000\\Downloads\\2001-20.pdf:PDF},
+  keywords  = {Internet;queueing theory;telecommunication congestion control;telecommunication traffic;transport protocols;Diffserv architecture;FIFO packet delivery;Internet connections;RED scheme;RIO queue management policy},
+}
+
+@Article{Kim2013,
+  author   = {Kim, Hyojoon and Feamster, N},
+  title    = {Improving network management with software defined networking},
+  journal  = {Communications Magazine IEEE},
+  year     = {2013},
+  volume   = {51},
+  number   = {2},
+  pages    = {114-119},
+  abstract = {Network management is challenging. To operate, maintain, and secure a communication network, network operators must grapple with low-level vendor-specific configuration to implement complex high-level network policies. Despite many previous proposals to make networks easier to manage, many solutions to network management problems amount to stop-gap solutions because of the difficulty of changing the underlying infrastructure. The rigidity of the underlying infrastructure presents few possibilities for innovation or improvement, since network devices have generally been closed, proprietary, and vertically integrated. A new paradigm in networking, software defined networking (SDN), advocates separating the data plane and the control plane, making network switches in the data plane simple packet forwarding devices and leaving a logically centralized software program to control the behavior of the entire network. SDN introduces new possibilities for network management and configuration methods. In this article, we identify problems with the current state-of-the-art network configuration and management mechanisms and introduce mechanisms to improve various aspects of network management. We focus on three problems in network management: enabling frequent changes to network conditions and state, providing support for network configuration in a highlevel language, and providing better visibility and control over tasks for performing network diagnosis and troubleshooting. The technologies we describe enable network operators to implement a wide range of network policies in a high-level policy language and easily determine sources of performance problems. In addition to the systems themselves, we describe various prototype deployments in campus and home networks that demonstrate how SDN can improve common network management tasks.},
+  file     = {:C\:\\Users\\pengz_000\\Downloads\\MDIwMTQxMDU2.pdf:PDF},
+  keywords = {computer network management;high level languages;telecommunication security;SDN;complex high-level network policy;high-level policy language;logically centralized software program;low-level vendor-specific configuration;network management;packet forwarding device},
+}
+
+@Article{6027859,
+  author   = {Knight, S. and Nguyen, H.X. and Falkner, N. and Bowden, R. and Roughan, M.},
+  title    = {The Internet Topology Zoo},
+  journal  = {Selected Areas in Communications, IEEE Journal on},
+  year     = {2011},
+  volume   = {29},
+  number   = {9},
+  pages    = {1765 -1775},
+  month    = {october},
+  issn     = {0733-8716},
+  doi      = {10.1109/JSAC.2011.111002},
+  keywords = {Internet Topology Zoo;PoP-level topology;meta-data;network data;network designs;network structure;network topology;Internet;meta data;telecommunication network topology;},
+  url      = {http://www.topology-zoo.org/},
+}
+
+@Electronic{libpcap,
+  title = {libpcap},
+  url   = {http://www.tcpdump.org/},
+}
+
+@Electronic{CAIDA,
+  year  = {2016},
+  title = {Caida Anonymized Internet Traces 2016},
+  url   = {http://www.caida.org/data/passive/passive_2016_dataset.xml},
+}
+
+@Electronic{Classful_network,
+  title = {Classful network},
+  url   = {https://en.wikipedia.org/wiki/Classful_network},
+}
+
+@Article{Floyd1969,
+  author   = {Floyd, Robert W},
+  title    = {Algorithm 97: Shortest path},
+  journal  = {Communications of the Acm},
+  year     = {1969},
+  volume   = {5},
+  number   = {6},
+  pages    = {345},
+  abstract = {An abstract is not available.},
+}
+
+@Article{Ingerman1962,
+  author   = {Ingerman, P. Z.},
+  title    = {Algorithm 141: Path matrix},
+  journal  = {Communications of the Acm},
+  year     = {1962},
+  volume   = {5},
+  number   = {11},
+  pages    = {556-556},
+  abstract = {The bonding in the molecule ion VO(H2O)(5)(2+) is described in terms of molecular orbitals. In particular, the most significant feature of the electronic structure of VO2+ seems to be the existence of considerable oxygen to vanadium pi-bonding. A molecular orbital energy level scheme is estimated which is able to account for both the "crystal field" and the "charge transfer" spectra of VO(H2O)(5)(2+) and related vanadyl complexes. The paramagnetic resonance g factors and the magnetic susceptibilities of vanadyl complexes are discussed.},
+}
+
+@InProceedings{Liu2017,
+  author    = {Liu, Ming and Luo, Liang and Nelson, Jacob and Ceze, Luis and Krishnamurthy, Arvind and Atreya, Kishore},
+  title     = {IncBricks: Toward In-Network Computation with an In-Network Cache},
+  booktitle = {International Conference},
+  year      = {2017},
+  pages     = {795-809},
+  abstract  = {Abstract The emergence of programmable network devices and the increasing data traffic of datacenters motivate the idea of in-network computation. By offloading compute operations onto intermediate networking devices (e.g., switches, network accelerators, middleboxes), one can (1) serve network requests on the fly with low latency; (2) reduce datacenter traffic and mitigate network congestion; and (3) save energy by running servers in a low-power mode. However, since (1) existing switch technology doesn't provide general computing capabilities, and (2) commodity datacenter networks are complex (e.g., hierarchical fat-tree topologies, multipath communication), enabling in-network computation inside a datacenter is challenging. In this paper, as a step towards in-network computing, we present IncBricks, an in-network caching fabric with basic computing primitives. IncBricks is a hardware-software co-designed system that supports caching in the network using a programmable network middlebox. As a key-value store accelerator, our prototype lowers request latency by over 30% and doubles throughput for 1024 byte values in a common cluster configuration. Our results demonstrate the effectiveness of in-network computing and that efficient datacenter network request processing is possible if we carefully split the computation across the different programmable computing elements in a datacenter, including programmable switches, network accelerators, and end hosts.},
+}
+
+@InProceedings{Einziger2015,
+  author    = {Einziger, G and Fellman, B and Kassner, Y},
+  title     = {Independent counter estimation buckets},
+  booktitle = {Computer Communications},
+  year      = {2015},
+  pages     = {2560-2568},
+  abstract  = {Measurement capabilities are essential for a variety of network applications, such as load balancing, routing, fairness and intrusion detection. These capabilities require large counter arrays in order to monitor the traffic of all network flows. While commodity SRAM memories are capable of operating at line speed, they are too small to accommodate large counter arrays. Previous works suggested estimators, which trade precision for reduced space. However, in order to accurately estimate the largest counter, these methods compromise the accuracy of the rest of the counters. In this work we present a closed form representation of the optimal estimation function. We then introduce Independent Counter Estimation Buckets (ICE-Buckets), a novel algorithm that improves estimation accuracy for all counters. This is achieved by separating the flows to buckets and configuring the optimal estimation function according to each bucket's counter scale. We prove an improved upper bound on the relative error and demonstrate an accuracy improvement of up to 57 times on real Internet packet traces.},
+  file      = {:C\:\\Users\\pengz_000\\Downloads\\ICEBuckets_infocom2015.pdf:PDF},
+  keywords  = {estimation theory;closed form representation;independent counter estimation buckets;optimal estimation function;Accuracy;Computers;Conferences;Estimation;Monitoring;Radiation detectors},
+}
+
+@InProceedings{Ran2017,
+  author    = {Ran, Ben Basat and Einziger, Gil and Friedman, Roy and Kassner, Yaron and Ran, Ben Basat and Einziger, Gil and Friedman, Roy and Kassner, Yaron and Ran, Ben Basat and Einziger, Gil},
+  title     = {Randomized admission policy for efficient top-k and frequency estimation},
+  booktitle = {IEEE INFOCOM 2017 - IEEE Conference on Computer Communications},
+  year      = {2017},
+  pages     = {1-9},
+  file      = {:C\:\\Users\\pengz_000\\Downloads\\Randomized Admission Policy for Efficient Top-k.pdf:PDF},
+}
+
+@Article{Tsidon2012,
+  author   = {Tsidon, E and Hanniel, I and Keslassy, I},
+  title    = {Estimators Also Need Shared Values to Grow Together},
+  journal  = {Proceedings - IEEE INFOCOM},
+  year     = {2012},
+  volume   = {131},
+  number   = {5},
+  pages    = {1889-1897},
+  abstract = {Network management applications require large numbers of counters in order to collect traffic characteristics for each network flow. However, these counters often barely fit into on-chip SRAM memories. Past papers have proposed using counter estimators instead, thus trading off counter precision for a lower number of bits. But these estimators do not achieve optimal estimation error, and cannot always scale to arbitrary counter values.},
+  file     = {:C\:\\Users\\pengz_000\\Downloads\\Estimators Also Need Shared Values.pdf:PDF},
+  keywords = {SRAM chips;counting circuits;field programmable gate arrays;CEDAR algorithm;FPGA;counter estimation decoupling for approximate rates;counter estimator;counter up-scaling;estimation value;field programmable gate array},
+}
+
+@Electronic{Pareto_principle,
+  title = {Pareto principle},
+  url   = {https://en.wikipedia.org/wiki/Pareto_principle},
+}
+
+@InProceedings{Zhang2013,
+  author    = {Zhang, Ying},
+  title     = {An adaptive flow counting method for anomaly detection in SDN},
+  booktitle = {ACM Conference on Emerging NETWORKING Experiments and Technologies},
+  year      = {2013},
+  pages     = {25-30},
+  abstract  = {The accuracy and granularity of network flow measurement play a critical role in many network management tasks, especially for anomaly detection. Despite its important, traffic monitoring often introduces overhead to the network, thus, operators have to employ sampling and aggregation to avoid overloading the infrastructure. However, such sampled and aggregated information may affect the accuracy of traffic anomaly detection. In this work, we propose a novel method that performs adaptive zooming in the aggregation of flows to be measured. In order to better balance the monitoring overhead and the anomaly detection accuracy, we propose a prediction based algorithm that dynamically change the granularity of measurement along both the spatial and the temporal dimensions. To control the load on each individual switch, we carefully delegate monitoring rules in the network wide. Using real-world data and three simple anomaly detectors, we show that the adaptive based counting can detect anomalies more accurately with less overhead.},
+  keywords  = {network measurement;software-defined networking},
+}
+
+@InProceedings{Hu2015,
+  author    = {Hu, Zhiming and Luo, Jun},
+  title     = {Cracking network monitoring in DCNs with SDN},
+  booktitle = {Computer Communications},
+  year      = {2015},
+  pages     = {199-207},
+  abstract  = {The outputs of network monitoring such as traffic matrix and elephant flow identification are essential inputs to many network operations and system designs in DCNs, but most solutions for network monitoring adopt direct measurements or inference alone, which may suffer from either high network overhead or low precision. Different from those approaches, we combine the direct measurements offered by software defined network (SDN) and inference techniques based on network tomography to derive a hybrid network monitoring scheme in this paper; it can strike a balance between measurement overhead and accuracy. Essentially, we use SDN to make the severely low determined network tomography (TM estimation) problem in DCNs to be a more determined one. Thus many classic network tomography algorithms in ISP networks become feasible for DCNs. By combining SDN with network tomography, we can also identify the elephant flows with high precision while occupying very little network resource. According to our experiment results, the accuracy of estimating the TM is far higher than those inferred by SNMP link counters only and the performance of identifying elephant flows is also very promising.},
+  keywords  = {computer centres;inference mechanisms;software defined networking;DCN direct measurement;ISP network;SDN direct measurement;TM estimation problem;data center network;high network overhead;hybrid network monitoring cracking scheme},
+}
+
+@InProceedings{Jarschel2013,
+  author    = {Jarschel, Michael and Zinner, Thomas and Hohn, Thomas and Tran-Gia, Phuoc},
+  title     = {On the accuracy of leveraging SDN for passive network measurements},
+  booktitle = {Telecommunication Networks and Applications Conference},
+  year      = {2013},
+  pages     = {41-46},
+  abstract  = {Network Measurement has emerged as one promising field of application for Software Defined Networking. The reason for this is that the logically centralized control plane of an SDN network inherently has to aggregate network state information in order to function. This circumstance can be leveraged for network measurements at the SDN controller without the need for additional equipment or active - and possibly disruptive - measurements in the network itself. However, the accuracy and potential resource overhead of this approach has not been discussed. In this paper we compare an SDN-based solution to actual traffic measurements in order to determine its accuracy and resource demand by performing tests in an OpenFlow testbed.},
+  keywords  = {OpenFlow;SDN;Network Measurement},
+}
+
+@InProceedings{Adrichem2014,
+  author    = {Adrichem, N. L. M. Van and Doerr, C. and Kuipers, F. A.},
+  title     = {OpenNetMon: Network monitoring in OpenFlow Software-Defined Networks},
+  booktitle = {Network Operations and Management Symposium},
+  year      = {2014},
+  pages     = {1-8},
+  abstract  = {We present OpenNetMon, an approach and open-source software implementation to monitor per-flow metrics, especially throughput, delay and packet loss, in OpenFlow networks. Currently, ISPs over-provision capacity in order to meet QoS demands from customers. Software-Defined Networking and OpenFlow allow for better network control and flexibility in the pursuit of operating networks as efficiently as possible. Where OpenFlow provides interfaces to implement fine-grained Traffic Engineering (TE), OpenNetMon provides the monitoring necessary to determine whether end-to-end QoS parameters are actually met and delivers the input for TE approaches to compute appropriate paths. OpenNetMon polls edge switches, i.e. switches with flow end-points attached, at an adaptive rate that increases when flow rates differ between samples and decreases when flows stabilize to minimize the number of queries. The adaptive rate reduces network and switch CPU overhead while optimizing measurement accuracy. We show that not only local links serving variable bit-rate video streams, but also aggregated WAN links benefit from an adaptive polling rate to obtain accurate measurements. Furthermore, we verify throughput, delay and packet loss measurements for bursty scenarios in our experiment testbed.},
+  keywords  = {computer network performance evaluation;software radio;OpenFlow software-defined networks;OpenNetMon;QoS parameters;aggregated WAN links;fine-grained traffic engineering;network monitoring;variable bit-rate video stream;Bandwidth},
+}
+
+@InProceedings{Suh2014,
+  author    = {Suh, Junho and Kwon, Ted Taekyoung and Dixon, Colin and Felter, Wes and Carter, John},
+  title     = {OpenSample: A Low-Latency, Sampling-Based Measurement Platform for Commodity SDN},
+  booktitle = {IEEE International Conference on Distributed Computing Systems},
+  year      = {2014},
+  pages     = {228-237},
+  abstract  = {In this paper we propose, implement and evaluate OpenSample: a low-latency, sampling-based network measurement platform targeted at building faster control loops for software-defined networks. OpenSample leverages sFlow packet sampling to provide near-real-time measurements of both network load and individual flows. While OpenSample is useful in any context, it is particularly useful in an SDN environment where a network controller can quickly take action based on the data it provides. Using sampling for network monitoring allows OpenSample to have a 100 millisecond control loop rather than the 1-5 second control loop of prior polling-based approaches. We implement OpenSample in the Floodlight Open Flow controller and evaluate it both in simulation and on a test bed comprised of commodity switches. When used to inform traffic engineering, OpenSample provides up to a 150% throughput improvement over both static equal-cost multi-path routing and a polling-based solution with a one second control loop.},
+  keywords  = {sFlow;Packet Sampling;Software Defined Networking;Data Center;Traffic Engineering;Measurement},
+}
+
+@Article{Xuan2017,
+  author   = {Xuan, Thien Phan and Kensuke, Fukuda},
+  title    = {SDN-Mon: Fine-Grained Traffic Monitoring Framework in Software-Defined Networks},
+  journal  = {Journal of Information Processing},
+  year     = {2017},
+  volume   = {58},
+  pages    = {182-190},
+  abstract = {Abstract Fine-grained network traffic monitoring is important for efficient network management in software-defined networking (SDN). The current SDN architecture, i.e., OpenFlow, relies on counters in the flow entries of forwarding tables for such monitoring tasks. This is not efficient nor flexible since the packet-header fields that users aim for monitoring are not always the same or overlap with those in OpenFlow match fields, which is designed for forwarding as a higher priority. This inflexibility may result in unnecessary flow entries added to switches for monitoring and controller-switch monitoring-based communication overhead, which may cause the communication channel to become a bottleneck, especially when the network includes a large number of switches. We propose SDN-Mon, a SDN-based monitoring framework that decouples monitoring from existing forwarding tables, and allows more fine-grained and flexible monitoring to serve a variety of network-management applications. SDN-Mon allows the controller to define the arbitrary sets of monitoring match fields based on the requirements of controller applications to flexibly monitor traffic. In SDN-Mon, some monitoring processes are selectively delegated to SDN switches to leverage the computing processor of the switch and avoid an unnecessary overhead in the controller-switch communication for monitoring. We implemented SDN-Mon and evaluated its performance on Lagopus switch, a high-performance software switch.},
+}
+
+@Article{Mckeown2008,
+  author        = {Mckeown, Nick and Anderson, Tom and Balakrishnan, Hari and Parulkar, Guru and Peterson, Larry and Rexford, Jennifer and Shenker, Scott and Turner, Jonathan},
+  title         = {OpenFlow:enabling innovation in campus networks},
+  journal       = {Acm Sigcomm Computer Communication Review},
+  year          = {2008},
+  volume        = {38},
+  number        = {2},
+  pages         = {69-74},
+  __markedentry = {[pengz_000:]},
+  abstract      = {This whitepaper proposes OpenFlow: a way for researchers to run experimental protocols in the networks they use every day. OpenFlow is based on an Ethernet switch, with an internal flow-table, and a standardized interface to add and remove flow entries. Our goal is to encourage networking vendors to add OpenFlow to their switch products for deployment in college campus backbones and wiring closets. We believe that OpenFlow is a pragmatic compromise: on one hand, it allows researchers to run experiments on heterogeneous switches in a uniform way at line-rate and with high port-density; while on the other hand, vendors do not need to expose the internal workings of their switches. In addition to allowing researchers to evaluate their ideas in real-world traffic settings, OpenFlow could serve as a useful campus component in proposed large-scale testbeds like GENI. Two buildings at Stanford University will soon run OpenFlow networks, using commercial Ethernet switches and routers. We will work to encourage deployment at other schools; and We encourage you to consider deploying OpenFlow in your university network too},
+  keywords      = {ethernet switch;flow-based;virtualization},
+}
+
+@InProceedings{Callegari2015,
+  author        = {Callegari, Christian and Giordano, Stefano and Pagano, Michele and Procissi, Gregorio},
+  title         = {OpenCounter: Counting unknown flows in Software Defined Networks},
+  booktitle     = {International Symposium on PERFORMANCE Evaluation of Computer and Telecommunication Systems},
+  year          = {2015},
+  pages         = {1-7},
+  __markedentry = {[pengz_000:6]},
+  abstract      = {The software defined paradigm is recently emerging as a very promising approach to simplify the way complex network applications are designed and integrated in large scale network scenarios. Typical examples of network--wide applications that may well benefit for such an approach are monitoring and security applications that collect information from multiple vantage points to provide higher lever analyses. In this context, this paper adopts the software defined approach to propose a novel distributed architecture that permits to effectively count the number of unknown flows in an SDN network, allowing the development of several monitoring security applications on top of it. The presented work relies on standard OpenFlow switches and on ad--hoc probabilistic variations of the sketch data structure. The proposed architecture is fully seamless for the underlying network behavior and the performance analysis carried out in laboratory test--bed proves its practical effectiveness.},
+  keywords      = {LogLog counting algorithm;cardinality estimation;network traffic monitoring;reversible sketch;software defined network},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

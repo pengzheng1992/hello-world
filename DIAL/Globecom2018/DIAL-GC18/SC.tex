@@ -1,0 +1,74 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{ifpdf}
+\usepackage{cite}
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+\else
+   \usepackage[dvips]{graphicx}
+\fi
+\usepackage{amsmath}
+\ifCLASSOPTIONcompsoc
+  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\else
+  \usepackage[caption=false,font=footnotesize]{subfig}
+\fi
+\usepackage{url}
+\usepackage{xcolor}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\pagestyle{plain}
+
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\aka}{{\it a.k.a.}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\etc}{{\it etc}}
+\newcommand{\ie}{{\it i.e.}}
+
+\begin{document}
+
+\title{DIAL: Distributed Elephant Flow Counting on SDN}
+
+\author{\IEEEauthorblockN{Zheng Peng,
+Hao Li and
+Chengchen Hu}
+\IEEEauthorblockA{Department of Computer Science and Technology\\
+Xi'an Jiaotong University\\
+Email: pengzheng@stu.xjtu.edu.cn, \{hao.li, chengchenhu\}@xjtu.edu.cn}}
+
+\maketitle
+
+\begin{abstract}
+In network measurement, many statistics counters need maintaining on the switch and thus consuming a lot of very precious on-chip memory.
+In fact, most network flows in the Internet are small flows that don't need large-width counters.
+In this paper, we present DIAL, a distributed counting approach, which duplicates the counting rules to leverage global memory resources, maximizing the counting efficiency, which is complementary to existing counter solutions.
+We pose and formulate the problem of finding the optimal placement for duplicated counting rules.
+After proving its NP hardness, we give some heuristics to fast generate a near-optimal placement.
+After describing the feasibility of implementation, we carry out some evaluation for DIAL.
+Our simulated results with Internet traffic and topologies show that DIAL can significantly decrease the memory cost and increase the memory efficiency for both fixed-width and variable-width counter architecture, with acceptable extra overheads, which is a great save of the precious high-speed memory in the switch.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{sec7}
+
+\section*{Acknowledgment}
+This work is supported by the National Key Research and Development Program of China (2017YFB0801703), NSFC (61702407, 61672425), and Fundamental Research Funds for the Central Universities.
+% The authors would like to thank...
+
+\bibliographystyle{IEEEtran}
+\bibliography{network}
+
+\end{document}

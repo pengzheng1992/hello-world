@@ -1,0 +1,47 @@
+\section{Introduction}\label{sec:intro}
+Per-flow counting is very essential to support various measurement scenarios~\cite{Ran2017}.
+Specifically, a per-flow measurement task associates each flow with a corresponding counter in the switch to record and update the expected statistics (\eg, packet counts and byte counts) of the flow.
+The high-level applications periodically query the counters to collect the statistics.
+To realize the wire-speed counting and respond to frequent querying, the counters are kept in the high-speed memory in the switch, \eg, on-chip registers or SRAM~\cite{Shah2002}, which is very expensive though~\cite{Hua2008}.
+In addition, as the Software-Defined Networking (SDN) emerges, the operators tend to measure the fine-grained flows instead of the traditional 5-tuple ones, which requires many more individual counters~\cite{Xuan2017}.
+
+Nevertheless, existing counting approaches waste the majority of even this limited memory, making it more insufficient.
+To be specific, they allocate $N$-bit memory for each counter to count $2^N$ packets/bytes, where $N$ is a fixed number.
+As a result, $N$ should be large enough to measure the ``elephant flows'' with many packets/bytes.
+However, since the majority of flows in the traffic are ``mice flows'' with a few packets/bytes~\cite{Pareto_principle, Guo2001}, many bits of memory are wasted in most counters.
+In other words, many fewer flows can be measured in a single switch.
+
+To efficiently count the elephant flows, many attempts have been made~\cite{Shah2002, Ramabhadran2003, Roeder2004, Zhao2006, Cvetkovski2007, Stanojevic2007, Hu2010, Hu2012}.
+These approaches embed more information into the counters, so that $N$-bit memory can measure more than $2^N$ packets/bytes.
+That is, the switch can allocate a smaller counter for each flow, so as to measure more flows.
+However, they still assume fixed-width counters, leaving many bits unused for mice flow counters.
+Recently, a variable-width architecture, \ie, BRICK, has been proposed~\cite{Hua2008}.
+BRICK splits the whole memory into small-sized buckets, and bundles each counter into one bucket initially.
+If the number of packets/bytes exceeds the counter's capacity, BRICK will allocate an extra bucket for this counter as higher-order bits.
+In sum, each counter is expected to consume ``just enough'' memory for the measurement.
+Although BRICK has efficiently utilized all memory in a single switch, the counting on elephant flows may still fail when the switch runs out of the buckets.
+This is quite possible, because the high-level measurement applications could count the flows anywhere along the routing path, and such randomness may aggregate the tasks of counting elephant flows into a few switches, resulting in memory exceeding.
+
+Some other works propose the adaptive counting approaches based on SDN architecture~\cite{Zhang2013, Hu2015, Jarschel2013, Adrichem2014, Suh2014}. 
+Besides reactively responding to the queries from the applications, SDN switches can proactively report the statistics to the controller, so as to multiplex the switch counters before exceeding.
+However, the report messages would incur a heavy load on the south-bound interface of SDN controller, since the counters may exceed very frequently as we discussed above.
+
+We observe that when a few switches are heavy-loaded for elephant flows, lots of memory in other switches remains unused.
+As a result, our basic idea is to maximumly utilize the memory along the routing path for a specific flow as the supplement to the memory in the local switch.
+To be specific, all the packets entering the network are tagged as ``uncounted''.
+Each switch that has idle memory will count the incoming uncounted packet in the local memory, tag it as ``counted'', and forward it to the next hop.
+Otherwise, the switch will leave the packet as uncounted, and directly forward it to the next hop, where more memory can be expected for counting.
+In this way, the elephant flows will be measured jointly by all the switches along the path, while the mice flows are still maintained by small counters in the single switch.
+We note that, however, this method duplicates many more counting rules along the routing path, which in contrast burdens the flow table.
+
+Based on the above insights, we propose \emph{DIstributed elephAnt fLow counting (DIAL)}, an enhanced SDN-based counting scheme, to address the inefficient counting problem for elephant flows.
+DIAL adaptively adds supplementary measurement rules to exploit the idle memory, while minimizing the impact on the flow tables.
+Note that DIAL focuses on scheduling the global memory resources, and as a result, it is complementary to all existing single switch optimization.
+
+In sum, we make the following contributions in this paper.
+
+\begin{itemize}
+\item We present DIAL, a distributed counting approach, which duplicates the counting rules to leverage the global memory resources, maximizing the counting efficiency.
+\item We pose and formulate the problem of finding the optimal placement for duplicated counting rules. After proving its NP hardness, we give some heuristics to fast generate a near-optimal placement.
+\item We describe the feasibility of implementation, and carry out some evaluation on DIAL. The results demonstrate that DIAL can significantly decrease the memory cost (up to 93\% and 78\%) for both fixed-width and variable-width counter architecture, with acceptable extra overheads.
+\end{itemize}

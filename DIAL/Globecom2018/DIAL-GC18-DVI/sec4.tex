@@ -1,0 +1,51 @@
+\section{Enforce DIAL into SDN}\label{sec:imp}
+In this section, we highlight some key designs of enforcing DIAL into real SDN environment.
+
+\textbf{Tag packets.}
+To avoid redundant counting in the switches along the routing path of a specific flow, the first switch that counts the flow should tag the packet as ``counted''.
+In OpenFlow, we can tag packets using an unused field of packet, \eg, VXLAN.
+Such field will be initialized with 0, denoting ``uncounted''.
+All the counting rules should only match the uncounted packets.
+In real time matching, if a packet is matched with a counting rule, the rule should modify the field to be 1, \ie, the packet has been counted.
+
+\textbf{Update results.}
+In the measurement system, the controller will collect the counters of all switches periodically.
+To be specific, at the end of each measurement period, switches will report their counter values to the controller by calling \texttt{upload} in Algorithm~\ref{alg:handle}.
+This can be implemented by Statistics messages in OpenFlow for querying the counters.
+
+\textbf{Handle exceptions.}
+In real-time counting, if a counter exceeds, \texttt{overflow\_report} in Algorithm~\ref{alg:handle} will be triggered to set the switch to be ``FULL''.
+If it doesn't exceed, this packet of the flow will remain ``uncounted'' and pass the switches which contain no rule or have been ``FULL'' for the flow.
+If all switches of a flow are full or have installed the counting rule, then \texttt{upload} will be triggered to upload the statistics of the flow in all switches to the controller counters and then clear the counter values in the switches to continue counting.
+During the counting process of DIAL, when a counter exceeds, the duplication happens as \texttt{overflow\_report} is triggered.
+In this procedure, an integer is used to help index the switch which incurs the overflowing.
+Then the flow will set the switch ``FULL'' and call \texttt{place} to find another switch to count it on.
+
+In OpenFlow, \texttt{overflow\_report} and \texttt{upload} launched by switch-end can be implemented with Flow-monitor, Experimenter, and Packet\_in messages in special cases.
+
+\begin{algorithm}[t]\small
+\caption{Exception handling}
+\label{alg:handle}
+\KwIn{\KwOut{the flow to be handled: $f$}}
+\BlankLine
+\texttt{upload}($f$)
+\Begin{
+	\ForEach {$s$ along the routing path of $f$} {
+		\If {the rule of counting $f$ has been installed in $s$}
+		{
+            upload the counter value of $f$ in $s$ to the controller and update the corresponding controller counter\;
+            reset the counter value of $f$ in $s$ to zero\;
+            set the state of $s$ along the routing path of $f$ to ``COUNTING''\;
+		}
+	}
+}
+\BlankLine
+\texttt{overflow\_report}($f$, $i$)
+\Begin{
+    \If {a packet leads to an overflow} {
+        set the state of the $i$-th switch along the routing path of $f$ to ``FULL''\;
+		\texttt{place}($f$)\;
+    }
+}
+\end{algorithm}
+\vspace{-2ex}
