@@ -9,7 +9,7 @@ void print_usage() {
 }
 
 int parse_args(IN int argc, IN char **argv, OUT const char **pcap_file, OUT const char **topo_file) {
-    fprintf(stdout, "argc: %d\n", argc);
+//    fprintf(stdout, "argc: %d\n", argc);
 	if (argc <= 1) {
             fprintf(stderr, "Too few arguments.\n");
             print_usage();
