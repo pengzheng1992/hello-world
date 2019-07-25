@@ -1,0 +1,8 @@
+2017年7月13日15:26:46
+参考了http://www.sdnlab.com/11079.html，进行mininet代码修改。
+在mininet/net.py文件中添加了iperf_single函数和iperfmulti函数，
+在mininet/cli.py文件中添加了do_iperfmulti函数，
+在bin/mn文件中添加了ALTSPELLING中的'iperfUDP': 'iperfUdp'和'iperfmulti':'iperfMulti'，
+最后，进入mininet/util目录，重新编译安装mininet。
+
+调试fattree
