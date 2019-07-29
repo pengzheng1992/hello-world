@@ -10,7 +10,7 @@ APP_PATH = ./$(APP)
 all: $(OBJS)
 	$(CC) -o $(APP) $(OBJS) $(CXXFLAGS) $(LDLIBS)
 
-$(APP).o: main.cpp common.h flow.h switch.h parse_args.h packet.h topo.h place.h statistics.h
+main.o: main.cpp common.h flow.h switch.h parse_args.h packet.h topo.h place.h statistics.h
 	$(CC) -c main.cpp $(CXXFLAGS) $(LDLIBS)
 topo.o: topo.cpp topo.h
 	$(CC) -c topo.cpp $(CXXFLAGS)

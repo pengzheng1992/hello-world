@@ -21,7 +21,7 @@ extern vector<Switch*> g_switches;
 
 extern std::unordered_map<Flow, int, flow_hash> g_controller_counters;
 extern long packets_in_controller;
-extern int kSplitCounterWidth;
+extern const int kSplitCounterWidth;
 
 //Flow clean_some_memory(std::unordered_map<Flow, int, flow_hash> &controller_counters, Switch *ps) {
 //#ifdef DEBUG_PLACE
@@ -292,7 +292,7 @@ int carrot_place(IN OUT Flow &f)
 	//sort(ss.begin(), ss.end(), moreEmpty());
 	if (ss.size() == 0) {
 		// what if all switches has rules
-		assert(0);
+		//assert(0);
 		// TODO: rewrite upload()
 		carrot_upload(f);
 		return 1;
@@ -355,4 +355,31 @@ void carrot_multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs)
 	//for (Flow f : fs) {
 	//	cout << f.switchesPath[0].first << " " << f.switchesPath[0].second << endl;
 	//}
+}
+
+void carrot_overflow_report(IN OUT Flow &f, IN int i, IN int type) {
+	if (1 == type)
+	{
+		// a packet leads to an overflow
+		f.switchesPath[i].second = 2;
+		carrot_place(IN OUT f);
+	}
+	else if (2 == type)
+	{
+		assert(false);
+		//assert(f.switchesPath[i].second == 1);
+
+		////TODO
+		//// a packet encounters a full switch
+		//// if sadly full
+		//// report a full counter 
+		//auto ps = g_switches[f.switchesPath[i].first];
+		//Flow fff = clean_some_memory(g_controller_counters, ps);
+		//f.switchesPath[i].second = 1;
+		//// and let me in it
+		//ps->counters.insert(make_pair(f, 0));
+		//// give that flow another place to count
+		//place(fff);
+		////assert(false);
+	}
 }

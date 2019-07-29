@@ -28,7 +28,7 @@ using namespace std;
 // NEED SETTING!!!
 const int kSwitches = 20; // how many switches we have in the topology file.
 //const int kFullCounterWidth = 28; // maybe <= 64bits. Related to traffic file
-const int kSplitCounterWidth = 13; // maybe <= 16bits
+extern const int kSplitCounterWidth = 13; // maybe <= 16bits
 //const int MEMINSWITCH = INT_MAX;
 ////const int kMaxCountersInSwitch = 30000; // how many counters can a switch hold
 const int kMaxCountersInSwitch = INT_MAX / kSplitCounterWidth;
@@ -339,13 +339,13 @@ void count_flow(IN OUT Flow &ff, IN OUT struct Packet *p_packet) {
 			else if (1 == overflow)
 			{
 				assert(1 == overflow);
-				overflow_report(IN OUT ff, IN i, IN 1);
+				carrot_overflow_report(IN OUT ff, IN i, IN 1);
 			}
 			else
 			{
 				assert(2 == overflow);
 				//assert(false);
-				overflow_report(IN OUT ff, IN i, IN 2);
+				carrot_overflow_report(IN OUT ff, IN i, IN 2);
 			}
 		}
 	}
