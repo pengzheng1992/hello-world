@@ -1,7 +1,7 @@
 // Author: PZ
-// Update Time: 2019/7/26 15:02
+// Update Time: 2019/8/2 21:06
 // Comment: change DIAL into CARROT: CARRy cOunTer
-// 
+// change CARROT from Fixed to Variable coutner width
 
 #include <climits>
 #include <cmath>
@@ -29,7 +29,7 @@ using namespace std;
 const int kSwitches = 38; // how many switches we have in the topology file.
 //const int kFullCounterWidth = 28; // maybe <= 64bits. Related to traffic file
 extern const int kSplitCounterWidth = 13; // maybe <= 16bits
-const int kMaxCountersInSwitch = 30000; // how many counters can a switch hold
+const int kMaxCountersInSwitch = 40000; // how many counters can a switch hold
 //const int kMaxCountersInSwitch = INT_MAX / kSplitCounterWidth;
 const int MEM = kMaxCountersInSwitch * kSplitCounterWidth;
 const int RULES = kMaxCountersInSwitch;
@@ -122,6 +122,43 @@ void show_results() {
 	cout << "standard_deviation: " << sd << "b" << endl;
 	cout << "SplitCounters, Total Memory: " << split_counters_memory << "b" << endl;
 	cout << "Packets in Controller: " << packets_in_controller << endl;
+}
+
+int bit_width(unsigned int n) {
+	unsigned int i = 0;
+	do {
+		++i;
+	} while ((n >> i));
+	return i;
+}
+
+void show_optimal() {
+	int optimalTotal = 0;
+	int optimal[kSwitches] = { 0 };
+	int smax = 0;
+	for (int i = 0; i < kSwitches; i++) {
+		for (auto it : g_switches[i]->counters) {
+			optimal[i] += bit_width(it.second);
+		}
+		smax = max(smax, optimal[i]);
+		cout << "SplitCounters[" << i << "]   "
+			<< "optimal[i] Memory: " << optimal[i] << "b" << endl;
+		optimalTotal += optimal[i];
+	}
+	double average = static_cast<double>(optimalTotal) / kSwitches;
+	cout << "average: " << average << "b" << endl;
+	double sd = standard_deviation(optimal, kSwitches, average);
+	cout << "standard_deviation: " << sd << "b" << endl;
+	cout << "optimalTotal, Total Memory: " << optimalTotal << "b" << endl;
+	int totalmax = smax * kSwitches;
+	cout << "a switch have " << smax << "b memory in one switch at most and "
+		<< totalmax << "b memory in total if all switches is smax" << endl;
+	/*int n = controller_counters.size();
+	int controller_counters_memory = n * kFullCounterWidth;
+	cout << "ControllerCounters,   "
+	<< "Flows: " << n << "   "
+	<< "Memory: " << controller_counters_memory << "b" << endl;*/
+	//cout << "Packets in Controller: " << packets_in_controller << endl;
 }
 
 void show_switches() {
@@ -396,7 +433,8 @@ int main(IN int argc, IN char *argv[]) {
 
 	//show_switches();
 	show_results();
-
+	cout << "optimal: " << endl;
+	show_optimal();
     // close the session
     pcap_close(handler);
     return 0;

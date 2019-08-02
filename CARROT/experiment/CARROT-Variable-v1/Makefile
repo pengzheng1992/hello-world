@@ -38,7 +38,7 @@ TOPO2 = ~/topo/cernet.txt
 TOPO3 = ~/topo/chinanet.txt
 #TOPO = ~/topo/test.txt
 
-DEV_ARGS = -p $(PCAP3) -t $(TOPO3)
+DEV_ARGS = -p $(PCAP1) -t $(TOPO3)
 
 run:
 	$(APP_PATH) $(DEV_ARGS)
