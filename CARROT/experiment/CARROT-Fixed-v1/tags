@@ -78,18 +78,21 @@ Tuple5::saddr	packet.h	/^	uint32_t saddr; \/\/ source IP address$/;"	m	struct:Tu
 Tuple5::sport	packet.h	/^	unsigned short sport; \/\/ source port number$/;"	m	struct:Tuple5	access:public
 Tuple5Hash	packet.h	/^struct Tuple5Hash {$/;"	s
 Tuple5Hash::operator ()	packet.h	/^	size_t operator () (const Tuple5 &o) const {$/;"	f	struct:Tuple5Hash	access:public	signature:(const Tuple5 &o) const
-callback_countflows	main.cpp	/^void callback_countflows(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content) {$/;"	f	signature:(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content)
+callback_carrot_count_flows	main.cpp	/^void callback_carrot_count_flows(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content) {$/;"	f	signature:(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content)
 callback_findinitflows	main.cpp	/^void callback_findinitflows(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content) {$/;"	f	signature:(u_char *args, const struct pcap_pkthdr *pcap_header, const u_char *pcap_content)
+carrot_count_flow	main.cpp	/^void carrot_count_flow(IN OUT Flow &ff, IN OUT struct Packet *p_packet) {$/;"	f	signature:(IN OUT Flow &ff, IN OUT struct Packet *p_packet)
+carrot_count_in_the_ith_switch	main.cpp	/^int carrot_count_in_the_ith_switch(IN OUT Flow &ff, IN OUT struct Packet *p_packet, IN int i) {$/;"	f	signature:(IN OUT Flow &ff, IN OUT struct Packet *p_packet, IN int i)
+carrot_count_packet	main.cpp	/^void carrot_count_packet(IN OUT struct Packet *p_packet) {$/;"	f	signature:(IN OUT struct Packet *p_packet)
 carrot_multi_place	place.cpp	/^void carrot_multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs)$/;"	f	signature:(IN OUT std::unordered_set<Flow, flow_hash> &fs)
 carrot_multi_place	place.h	/^void carrot_multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs);$/;"	p	signature:(IN OUT std::unordered_set<Flow, flow_hash> &fs)
+carrot_overflow_report	place.cpp	/^void carrot_overflow_report(IN OUT Flow &f, IN int i, IN int type) {$/;"	f	signature:(IN OUT Flow &f, IN int i, IN int type)
+carrot_overflow_report	place.h	/^void carrot_overflow_report(IN OUT Flow &f, IN int i, IN int type);$/;"	p	signature:(IN OUT Flow &f, IN int i, IN int type)
 carrot_place	place.cpp	/^int carrot_place(IN OUT Flow &f)$/;"	f	signature:(IN OUT Flow &f)
 carrot_place	place.h	/^int carrot_place(IN OUT Flow &f);$/;"	p	signature:(IN OUT Flow &f)
 carrot_upload	place.cpp	/^void carrot_upload(Flow &f) {$/;"	f	signature:(Flow &f)
 carry	packet.h	/^	bool carry;$/;"	m	struct:Packet	access:public
 collect_statistics	main.cpp	/^void collect_statistics() {$/;"	f	signature:()
-count_flow	main.cpp	/^void count_flow(IN OUT Flow &ff, IN OUT struct Packet *p_packet) {$/;"	f	signature:(IN OUT Flow &ff, IN OUT struct Packet *p_packet)
 count_in_the_ith_switch	main.cpp	/^int count_in_the_ith_switch(IN OUT Flow &ff, IN OUT struct Packet *p_packet, IN int i) {$/;"	f	signature:(IN OUT Flow &ff, IN OUT struct Packet *p_packet, IN int i)
-count_packet	main.cpp	/^void count_packet(IN OUT struct Packet *p_packet) {$/;"	f	signature:(IN OUT struct Packet *p_packet)
 counted	packet.h	/^	bool counted;$/;"	m	struct:Packet	access:public
 counterMemoryTotal	switch.h	/^	unsigned int counterMemoryTotal;$/;"	m	class:Switch	access:public
 counterWidth	switch.h	/^	int counterWidth;$/;"	m	class:Switch	access:public
@@ -120,7 +123,8 @@ ip_info_from_pcap	packet.cpp	/^void ip_info_from_pcap(IN const u_char **p_pcap_c
 ip_info_from_pcap	packet.h	/^void ip_info_from_pcap(IN const u_char **p_pcap_content, OUT struct Packet *p_packet);$/;"	p	signature:(IN const u_char **p_pcap_content, OUT struct Packet *p_packet)
 ip_proto	packet.h	/^	unsigned char ip_proto; \/\/ protocol$/;"	m	struct:Tuple5	access:public
 kMaxCountersInSwitch	main.cpp	/^const int kMaxCountersInSwitch = INT_MAX \/ kSplitCounterWidth;$/;"	v
-kSplitCounterWidth	main.cpp	/^const int kSplitCounterWidth = 13; \/\/ maybe <= 16bits$/;"	v
+kSplitCounterWidth	main.cpp	/^extern const int kSplitCounterWidth = 13; \/\/ maybe <= 16bits$/;"	v
+kSplitCounterWidth	place.cpp	/^extern const int kSplitCounterWidth;$/;"	x
 kSwitches	main.cpp	/^const int kSwitches = 20; \/\/ how many switches we have in the topology file.$/;"	v
 length	packet.h	/^	int length;$/;"	m	struct:Packet	access:public
 lessSwitches	flow.h	/^struct lessSwitches {$/;"	s
@@ -129,7 +133,6 @@ main	main.cpp	/^int main(IN int argc, IN char *argv[]) {$/;"	f	signature:(IN int
 moreEmpty	switch.h	/^struct moreEmpty {$/;"	s
 moreEmpty::operator ()	switch.h	/^	bool operator () (const Switch* lhs, const Switch* rhs)  const {$/;"	f	struct:moreEmpty	access:public	signature:(const Switch* lhs, const Switch* rhs) const
 multi_place	place.cpp	/^void multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs)$/;"	f	signature:(IN OUT std::unordered_set<Flow, flow_hash> &fs)
-multi_place	place.h	/^void multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs);$/;"	p	signature:(IN OUT std::unordered_set<Flow, flow_hash> &fs)
 nSwitches	flow.h	/^	int nSwitches; \/\/ sizeof switchesPath$/;"	m	class:Flow	access:public
 nextHop	main.cpp	/^vector<vector<int>> nextHop(kSwitches, vector<int>(kSwitches));$/;"	p	file:	signature:(kSwitches, vector<int>(kSwitches))
 open_file	topo.cpp	/^ifstream& open_file(ifstream &in, const string &file) {$/;"	f	signature:(ifstream &in, const string &file)
@@ -142,19 +145,15 @@ operator <	packet.h	/^	bool operator < (Tuple5 const &o) const {$/;"	f	struct:Tu
 operator ==	flow.h	/^	bool operator == (const Flow &o) const {$/;"	f	class:Flow	access:public	signature:(const Flow &o) const
 operator ==	packet.h	/^	bool operator == (const Tuple5 &o) const {$/;"	f	struct:Tuple5	access:public	signature:(const Tuple5 &o) const
 overflow_report	place.cpp	/^void overflow_report(IN OUT Flow &f, IN int i, IN int type) {$/;"	f	signature:(IN OUT Flow &f, IN int i, IN int type)
-overflow_report	place.h	/^void overflow_report(IN OUT Flow &f, IN int i, IN int type);$/;"	p	signature:(IN OUT Flow &f, IN int i, IN int type)
 packets_in_controller	main.cpp	/^long packets_in_controller = 0;$/;"	v
 packets_in_controller	place.cpp	/^extern long packets_in_controller;$/;"	x
 parse_args	parse_args.cpp	/^int parse_args(IN int argc, IN char **argv, OUT const char **pcap_file, OUT const char **topo_file) {$/;"	f	signature:(IN int argc, IN char **argv, OUT const char **pcap_file, OUT const char **topo_file)
 parse_args	parse_args.h	/^int parse_args(IN int argc, IN char **argv, OUT const char **pcap_file, OUT const char **topo_file);$/;"	p	signature:(IN int argc, IN char **argv, OUT const char **pcap_file, OUT const char **topo_file)
 place	place.cpp	/^int place(IN OUT Flow &f)$/;"	f	signature:(IN OUT Flow &f)
-place	place.h	/^int place(IN OUT Flow &f);$/;"	p	signature:(IN OUT Flow &f)
 print_usage	parse_args.cpp	/^void print_usage() {$/;"	f	signature:()
 print_usage	parse_args.h	/^void print_usage();$/;"	p	signature:()
 random_multi_place	place.cpp	/^void random_multi_place(IN OUT std::unordered_set<Flow, flow_hash>& fs)$/;"	f	signature:(IN OUT std::unordered_set<Flow, flow_hash>& fs)
-random_multi_place	place.h	/^void random_multi_place(IN OUT std::unordered_set<Flow, flow_hash> &fs);$/;"	p	signature:(IN OUT std::unordered_set<Flow, flow_hash> &fs)
 random_place	place.cpp	/^int random_place(IN OUT Flow & f)$/;"	f	signature:(IN OUT Flow & f)
-random_place	place.h	/^int random_place(IN OUT Flow &f);$/;"	p	signature:(IN OUT Flow &f)
 saddr	packet.h	/^	uint32_t saddr; \/\/ source IP address$/;"	m	struct:Tuple5	access:public
 show_results	main.cpp	/^void show_results() {$/;"	f	signature:()
 show_switches	main.cpp	/^void show_switches() {$/;"	f	signature:()
